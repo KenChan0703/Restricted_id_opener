@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>進階數字開啟器</title>
+    <link rel="icon" type="image/jpg" href="images/Azur_lane_icon.jpg">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        select {
+            padding: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>數字/ID開啟器</h1>
+        <a href="https://kenchan0703.github.io/ID_Shortcut/">正常模式(首頁)</a>
+        <a href="">關於(我沒有加)</a>
+        <a href="">聯絡我們(我沒有加)</a>
+        </a>
+    </header>
+    <label for="urlSelector" style="font-size:24px"><b>網站:</b></label>
+    <select id="urlSelector">
+        <option value="https://www.pixiv.net/artworks/">Pixiv (P站)</option>
+        <option value="https://www.18comic.vip/album/">禁漫天堂(公眾場合不宜)</option>
+        <option value="https://www.wnacg.com/photos-index-aid-">紳士漫畫(公眾場合不宜)</option>
+        <option value="https://www.nhentai.net/g/">N站(公眾場合不宜)</option>
+    </select>
+
+    <input type="text" id="articleId" placeholder="把你從某處獲取的數字ID輸入到這" />
+    <button id="openButton">開啟</button>
+
+    <script>
+        // Base URL for the articles
+        const BASE_URL = "https://www.pixiv.net/artworks/";
+
+        document.getElementById("openButton").onclick = function() {
+            const articleId = document.getElementById("articleId").value.trim(); // Get user input
+            const baseUrl = document.getElementById("urlSelector").value; // Get selected base URL
+
+            // Check if the input is empty
+            if (articleId !== "") {
+                const url = baseUrl + articleId; // Construct the full URL
+                window.open(url);// Redirect to the constructed URL
+            } else {
+                alert("數字不能留空"); // Show an alert for empty input
+            }
+        };
+    </script>
+    <br>
+        <p>來點樂子?</p>
+        <button id="RNGbutton">生成隨機數0-99999</button>
+        <label id="RNGLabel"></label>
+        <script src="index.js"></script>
+    <br>
+    <p style="font-weight: bold;">注: 請謹慎使用</p>
+    <footer>
+        <Br>
+        <b>Author: 3rdJuly<br></b>
+        <b>&copy; 2024 No copyright</b> <br>
+        <small><a href="">Something@mail.com (no mail)</a></small>
+        <Br>
+    </footer>
+</body>
+</html>
